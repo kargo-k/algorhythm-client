@@ -1,16 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LandingPage from './components/LandingPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello, World!  Welcome to Algorhythm Nation</h1>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { user: 'Sign Up' }
+  }
+
+  render() {
+    return (
+      <div className="App" >
+        <LandingPage />
+      </div>
+    );
+  }
 }
 
 export default App;
