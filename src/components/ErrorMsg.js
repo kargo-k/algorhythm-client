@@ -1,16 +1,16 @@
 import React from 'react';
 import '../App.css';
 
-class Song extends React.Component {
+class ErrorMsg extends React.Component {
 
     render() {
         return (
             <div >
-                <h1>this be a song</h1>
+                <h1>this be a ErrorMsg</h1>
             </div>
         );
     }
 
 }
 
-export default Song;
+export default ErrorMsg;
