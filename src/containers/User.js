@@ -7,24 +7,33 @@ import CreatePlaylists from '../containers/CreatePlaylists'
 import SavedPlaylists from '../containers/SavedPlaylists'
 import Sliders from '../components/Sliders'
 
-
-
-const BACKEND_URL = 'http://localhost:8888/users/1'
+const BACKEND_URL = 'http://localhost:8888'
+const PLAYLISTS_URL ='http://localhost:8888/playlists'
 
 class User extends React.Component {
 
   constructor() {
     super()
-  }
+    this.state = {
+      allPlaylists: [],
+      songs: [],
+      users: []
+    }
+  };
 
   componentDidMount() {
     // FIXME: un-hard code user 1
-    fetch(BACKEND_URL)
+    fetch(PLAYLISTS_URL)
     .then(resp => resp.json())
-    .then(console.log())
+    .then(playlistData => this.renderPlaylists(playlistData))
   }
 
+  renderPlaylists = (playlistData) => {
+    this.setState ({
+      allPlaylists: playlistData
+    })
 
+  }
 
   render() {
     return (
@@ -46,13 +55,10 @@ class User extends React.Component {
           width: '30%',
           float: 'left',
           border: '5px dashed pink'}}>
-            <SavedPlaylists/>
+            <SavedPlaylists allPlaylists={this.state.allPlaylists}/>
         </div>
 
         <Sliders/>
-
-      <Route exact path='/createplaylists' component={CreatePlaylists} />
-
       </div>
       </Router>
 
