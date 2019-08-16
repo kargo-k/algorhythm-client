@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import LandingPage from './components/LandingPage';
-import Song from './components/Song';
-import ErrorMsg from './components/ErrorMsg'
-import User from './components/User'
 import queryString from 'query-string'
+import './App.css';
+
+import Welcome from './components/Welcome';
+import Song from './components/Song';
+import User from './containers/User'
+import ErrorMsg from './components/ErrorMsg'
+
+import SavedPlaylists from './containers/SavedPlaylists'
 
 class App extends React.Component {
 
@@ -14,19 +17,14 @@ class App extends React.Component {
     this.state = { serverData: {} }
   }
 
-  componentDidMount() {
-    console.log(window.location)
-    let parsed = queryString.parse(window.location.search)
-    console.log(parsed)
-  }
-
   render() {
     return (
       <Router>
         <div className="App" >
-          <Route exact path='/' component={LandingPage} />
+          <Route exact path='/' component={Welcome} />
           <Route exact path='/user' component={User} />
           <Route exact path='/error' component={ErrorMsg} />
+
         </div>
       </Router>
     );
