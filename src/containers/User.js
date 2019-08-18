@@ -8,7 +8,7 @@ import SavedPlaylists from '../containers/SavedPlaylists'
 import Sliders from '../components/Sliders'
 
 const BACKEND_URL = 'http://localhost:8888'
-const PLAYLISTS_URL ='http://localhost:8888/playlists'
+const PLAYLISTS_URL = 'http://localhost:8888/playlists'
 
 class User extends React.Component {
 
@@ -17,49 +17,59 @@ class User extends React.Component {
     this.state = {
       allPlaylists: [],
       songs: [],
-      users: []
+      current_user: {},
     }
   };
 
   componentDidMount() {
-    // FIXME: un-hard code user 1
-    fetch(PLAYLISTS_URL)
-    .then(resp => resp.json())
-    .then(playlistData => this.renderPlaylists(playlistData))
+    // saving the user's access token to local storage
+    let token = this.props.location.search.substr(7)
+    console.log('token', token)
+    localStorage.setItem('token', token)
+
+    fetch(`${BACKEND_URL}/users?token=${token}`)
+      .then(resp => resp.json())
+      .then(user_data => this.setState({ current_user: user_data }))
+
+    fetch(`${PLAYLISTS_URL}?token=${token}`)
+      .then(resp => resp.json())
+      // .then(playlistData => console.log('this is the playlist fetch response', playlistData))
+      .then(playlistData => this.renderPlaylists(playlistData))
   }
 
+  // ? this can be done up in line 31 after getting the fetch response
   renderPlaylists = (playlistData) => {
-    this.setState ({
+    this.setState({
       allPlaylists: playlistData
     })
-
   }
 
   render() {
     return (
       <Router>
-      <div>
         <div>
-          <h1>this be a User</h1>
-        </div>
+          <div>
+            <h1>{this.state.current_user.username}</h1>
+          </div>
 
-        <div style={{
-          width: '50%',
-          float: 'right',
-          border: '5px dashed red',
+          <div style={{
+            width: '50%',
+            float: 'right',
+            border: '5px dashed red',
           }}>
-            <CreatePlaylists/>
-        </div>
+            <CreatePlaylists />
+          </div>
 
-        <div style={{
-          width: '30%',
-          float: 'left',
-          border: '5px dashed pink'}}>
-            <SavedPlaylists allPlaylists={this.state.allPlaylists}/>
-        </div>
+          <div style={{
+            width: '30%',
+            float: 'left',
+            border: '5px dashed pink'
+          }}>
+            <SavedPlaylists allPlaylists={this.state.allPlaylists} />
+          </div>
 
-        <Sliders/>
-      </div>
+          <Sliders />
+        </div>
       </Router>
 
     );

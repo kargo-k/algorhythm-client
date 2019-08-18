@@ -14,12 +14,12 @@ class Navbar extends React.Component {
     return (
       <Router>
         <div >
-          <Route exact path={'/'} component={LandingPage}
+          <Route exact path={'/'} component={LandingPage} />
           <Route path={'/playlist'} component={CurrentPlaylist} />
-            </div>
-          </Router>
-        );
-      }
-    }
+        </div>
+      </Router>
+    );
+  }
+}
 
-    export default Navbar;
+export default Navbar;

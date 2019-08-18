@@ -10,15 +10,13 @@ class Welcome extends React.Component {
                 <h1>Algorhythm Nation</h1>
                 <p>Where you can generate playlists to suit your needs using our algo...rhythms.  Get it?</p>
 
+                <a href="http://localhost:8888/login">link</a>
 
+                <button onClick={() => window.open('http://localhost:8888/login')}>Login via Spotify</button>
 
-                <a href="http://localhost:8888/login"><button onClick={this.loginSpotify}>Login via Spotify</button></a>
-            </div>
+                <button onClick={() => localStorage.clear()}>Logout</button>
+            </div >
         );
-    }
-
-    loginSpotify = () => {
-        console.log('logging in')
     }
 }
 
