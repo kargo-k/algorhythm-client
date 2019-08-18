@@ -1,8 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { BrowserRouter as Route, Link } from 'react-router-dom'
-import CurrentPlaylist from '../containers/CurrentPlaylist'
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class Navbar extends React.Component {
 
@@ -12,12 +10,10 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div >
-          <Route exact path={'/'} component={LandingPage} />
-          <Route path={'/playlist'} component={CurrentPlaylist} />
-        </div>
-      </Router>
+      <div >
+        This is the Navbar
+        <button onClick={this.props.handleLogout}>Logout</button>
+      </div>
     );
   }
 }

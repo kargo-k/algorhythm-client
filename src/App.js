@@ -17,7 +17,7 @@ class App extends React.Component {
     this.state = { serverData: {} }
   }
 
-  
+
 
   render() {
     return (
@@ -31,6 +31,6 @@ class App extends React.Component {
       </Router>
     );
   }
-}
 
+}
 export default App;

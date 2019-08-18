@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-
+import Navbar from '../components/Navbar'
 import CreatePlaylists from '../containers/CreatePlaylists'
 import SavedPlaylists from '../containers/SavedPlaylists'
 import Sliders from '../components/Sliders'
@@ -47,6 +47,7 @@ class User extends React.Component {
   render() {
     return (
       <Router>
+        <Navbar handleLogout={this.handleLogout} />
         <div>
           <div>
             <h1>{this.state.current_user.username}</h1>
@@ -73,6 +74,11 @@ class User extends React.Component {
       </Router>
 
     );
+  }
+
+  handleLogout = () => {
+    localStorage.clear()
+    window.open('http://localhost:3000', "_parent")
   }
 
 }
