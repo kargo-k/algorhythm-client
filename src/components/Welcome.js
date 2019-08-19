@@ -6,7 +6,7 @@ class Welcome extends React.Component {
 
     render() {
         return (
-            <div >
+            <div className="bg">
                 <h1>Algorhythm Nation</h1>
                 <p>Where you can generate playlists to suit your needs using our algo...rhythms.  Get it?</p>
 
@@ -18,7 +18,6 @@ class Welcome extends React.Component {
     }
 
     loginSpotify = () => {
-        console.log('logging in')
     }
 }
 

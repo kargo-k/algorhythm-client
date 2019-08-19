@@ -11,17 +11,16 @@ const BACKEND_URL = 'http://localhost:8888'
 const PLAYLISTS_URL ='http://localhost:8888/playlists'
 
 class User extends React.Component {
-
   constructor() {
-    super()
+    super();
     this.state = {
       allPlaylists: [],
       songs: [],
-      users: []
+      isClicked: false
     }
   };
 
-  componentDidMount() {
+  componentDidMount = (playlist) => {
     // FIXME: un-hard code user 1
     fetch(PLAYLISTS_URL)
     .then(resp => resp.json())
@@ -29,42 +28,51 @@ class User extends React.Component {
   }
 
   renderPlaylists = (playlistData) => {
-    this.setState ({
-      allPlaylists: playlistData
-    })
-
+    this.setState({
+      allPlaylists: playlistData,
+    });
   }
+
+  onPlaylistClick = (id) => {
+    console.log('thisissenttoonplaylistclick', id)
+    fetch(`${PLAYLISTS_URL}/${id}`)
+    .then(resp => resp.json())
+    .then(playlistSongData => this.displaySong(playlistSongData))
+
+    this.setState({
+      isClicked: !this.state.isClicked
+    })
+  }
+
+  displaySong = (playlistSongData) => {
+    this.setState({
+      songs: playlistSongData
+    })
+  }
+
+
 
   render() {
     return (
-      <Router>
-      <div>
-        <div>
-          <h1>this be a User</h1>
-        </div>
 
-        <div style={{
-          width: '50%',
-          float: 'right',
-          border: '5px dashed red',
-          }}>
+        <div className= 'playlists'>
+          <div className='user-heading'>
+            <h1>Welcome back, user</h1>
+          </div>
+
+          <div className='create-playlists'>
             <CreatePlaylists/>
-        </div>
+          </div>
 
-        <div style={{
-          width: '30%',
-          float: 'left',
-          border: '5px dashed pink'}}>
-            <SavedPlaylists allPlaylists={this.state.allPlaylists}/>
-        </div>
-
+          <div className='saved-playlists'>
+            <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.songs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists}/>
+          </div>
         <Sliders/>
-      </div>
-      </Router>
+        </div>
 
-    );
-  }
 
+      );
+    }
 }
 
 export default User;
