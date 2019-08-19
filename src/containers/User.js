@@ -10,16 +10,17 @@ import Sliders from '../components/Sliders'
 
 const BACKEND_URL = 'http://localhost:8888'
 const PLAYLISTS_URL = 'http://localhost:8888/playlists'
+const SONGS_URL = 'http://localhost:8888/songs'
 
 class User extends React.Component {
-
   constructor() {
-    super()
+    super();
     this.state = {
       allPlaylists: [],
       songs: [],
-      current_user: {},
-      current_playlist: null
+      playlistSongs: [],
+      isClicked: false,
+      current_user: {}
     }
   };
 
@@ -36,56 +37,24 @@ class User extends React.Component {
     fetch(`${PLAYLISTS_URL}?token=${token}`)
       .then(resp => resp.json())
       // .then(playlistData => console.log('this is the playlist fetch response', playlistData))
-      .then(playlistData => this.renderPlaylists(playlistData))
+      .then(playlistData => this.setState({ playlistData: playlistData }))
   }
 
-  // ? this can be done up in line 31 after getting the fetch response
-  renderPlaylists = (playlistData) => {
+  onPlaylistClick = (id) => {
+    console.log('thisissenttoonplaylistclick', id)
+    fetch(`${PLAYLISTS_URL}/${id}`)
+      .then(resp => resp.json())
+      .then(playlistSongData => this.displayPlaylistSongs(playlistSongData))
+
     this.setState({
-      allPlaylists: playlistData
+      isClicked: !this.state.isClicked
     })
   }
 
-  render() {
-    return (
-      <Router>
-        <Navbar handleLogout={this.handleLogout} />
-        <div>
-          <div>
-            <h1>{this.state.current_user.username}</h1>
-          </div>
-
-          <div style={{
-            width: '50%',
-            float: 'right',
-            border: '5px dashed red',
-          }}>
-            <CreatePlaylists />
-          </div>
-
-
-          <div style={{
-            width: '30%',
-            float: 'left',
-            border: '5px dashed green'
-          }}><h3>this is where the opened playlist renders</h3>
-            {<SongsContainer current_playlist={this.state.current_playlist} />}
-          </div>
-
-
-          <div style={{
-            width: '30%',
-            float: 'left',
-            border: '5px dashed pink'
-          }}>
-            <SavedPlaylists allPlaylists={this.state.allPlaylists} handleShowPlaylist={this.handleShowPlaylist} />
-          </div>
-
-          <Sliders />
-        </div>
-      </Router>
-
-    );
+  displayPlaylistSongs = (playlistSongData) => {
+    this.setState({
+      playlistSongs: playlistSongData
+    })
   }
 
   handleLogout = () => {
@@ -93,11 +62,27 @@ class User extends React.Component {
     window.open('http://localhost:3000', "_parent")
   }
 
-  handleShowPlaylist = id => {
-    console.log('open this playlists songs by making a fetch request')
-    fetch(`${BACKEND_URL}/playlists/${id}`)
-      .then(resp => resp.json())
-      .then(playlistDetails => this.setState({ current_playlist: playlistDetails }))
+  render() {
+    return (
+      <Router>
+        <Navbar handleLogout={this.handleLogout} />
+        <div className='playlists'>
+          <div className='user-heading'>
+            <h1>{this.state.current_user.username}</h1>
+          </div>
+
+          <div className='create-playlists'>
+            <CreatePlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} />
+          </div>
+
+          <div className='saved-playlists'>
+            <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists} />
+          </div>
+
+          <Sliders />
+        </div>
+      </Router>
+    )
   }
 
 }
