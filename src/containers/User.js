@@ -9,13 +9,14 @@ import Sliders from '../components/Sliders'
 
 const BACKEND_URL = 'http://localhost:8888'
 const PLAYLISTS_URL ='http://localhost:8888/playlists'
+const SONGS_URL = 'http://localhost:8888/songs'
 
 class User extends React.Component {
   constructor() {
     super();
     this.state = {
       allPlaylists: [],
-      songs: [],
+      playlistSongs: [],
       isClicked: false
     }
   };
@@ -37,16 +38,16 @@ class User extends React.Component {
     console.log('thisissenttoonplaylistclick', id)
     fetch(`${PLAYLISTS_URL}/${id}`)
     .then(resp => resp.json())
-    .then(playlistSongData => this.displaySong(playlistSongData))
+    .then(playlistSongData => this.displayPlaylistSongs(playlistSongData))
 
     this.setState({
       isClicked: !this.state.isClicked
     })
   }
 
-  displaySong = (playlistSongData) => {
+  displayPlaylistSongs = (playlistSongData) => {
     this.setState({
-      songs: playlistSongData
+      playlistSongs: playlistSongData
     })
   }
 
@@ -61,13 +62,12 @@ class User extends React.Component {
           </div>
 
           <div className='create-playlists'>
-            <CreatePlaylists/>
+            <CreatePlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs}/>
           </div>
 
           <div className='saved-playlists'>
-            <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.songs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists}/>
+            <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists}/>
           </div>
-        <Sliders/>
         </div>
 
 
