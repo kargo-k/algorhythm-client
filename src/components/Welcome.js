@@ -16,12 +16,6 @@ class Welcome extends React.Component {
             </div >
         );
     }
-<<<<<<< HEAD
-=======
-
-    loginSpotify = () => {
-    }
->>>>>>> master
 }
 
 export default Welcome;
