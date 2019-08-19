@@ -79,7 +79,6 @@ class User extends React.Component {
             <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists} />
           </div>
 
-          <Sliders />
         </div>
       </Router>
     )
