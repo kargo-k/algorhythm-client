@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import CreatePlaylists from '../containers/CreatePlaylists'
 import SavedPlaylists from '../containers/SavedPlaylists'
+import SongsContainer from '../containers/SongsContainer'
 import Sliders from '../components/Sliders'
 
 const BACKEND_URL = 'http://localhost:8888'
@@ -18,6 +19,7 @@ class User extends React.Component {
       allPlaylists: [],
       songs: [],
       current_user: {},
+      current_playlist: null
     }
   };
 
@@ -61,12 +63,22 @@ class User extends React.Component {
             <CreatePlaylists />
           </div>
 
+
+          <div style={{
+            width: '30%',
+            float: 'left',
+            border: '5px dashed green'
+          }}><h3>this is where the opened playlist renders</h3>
+            {<SongsContainer current_playlist={this.state.current_playlist} />}
+          </div>
+
+
           <div style={{
             width: '30%',
             float: 'left',
             border: '5px dashed pink'
           }}>
-            <SavedPlaylists allPlaylists={this.state.allPlaylists} />
+            <SavedPlaylists allPlaylists={this.state.allPlaylists} handleShowPlaylist={this.handleShowPlaylist} />
           </div>
 
           <Sliders />
@@ -79,6 +91,13 @@ class User extends React.Component {
   handleLogout = () => {
     localStorage.clear()
     window.open('http://localhost:3000', "_parent")
+  }
+
+  handleShowPlaylist = playlist_id => {
+    console.log('open this playlists songs by making a fetch request')
+    fetch(`${BACKEND_URL}/playlists/${playlist_id}`)
+      .then(resp => resp.json())
+      .then(playlistDetails => this.setState({ current_playlist: playlistDetails }))
   }
 
 }

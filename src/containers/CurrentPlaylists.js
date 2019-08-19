@@ -9,7 +9,7 @@ class CurrentPlaylist extends React.Component {
         return (
             <div >
                 <h1>this be a current playlist</h1>
-                <Song/>
+                <Song />
             </div>
 
         );

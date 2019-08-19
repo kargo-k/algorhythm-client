@@ -11,14 +11,15 @@ class SavedPlaylists extends React.Component {
     return (
       <div>
         <h1>this be a list of saved Playlists</h1>
-        {/* {
+        {
           this.props.allPlaylists.map(playlist => {
             return <PlaylistCard
               key={playlist.id}
               playlist={playlist}
+              handleShowPlaylist={this.props.handleShowPlaylist}
             />
           })
-        } */}
+        }
       </div>
     );
   }

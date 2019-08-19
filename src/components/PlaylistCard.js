@@ -6,11 +6,10 @@ import Song from '../components/Song'
 class PlaylistCard extends React.Component {
 
     render() {
-      console.log(this.props)
+
         return (
-            <div >
-                <h3>{this.props.playlist.name}</h3>
-                <Song/>
+            <div onClick={() => this.props.handleShowPlaylist(this.props.playlist.id)}>
+                <h3>{this.props.playlist.name} - ({this.props.playlist.id})</h3>
             </div>
 
         );
