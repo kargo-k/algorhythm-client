@@ -93,9 +93,9 @@ class User extends React.Component {
     window.open('http://localhost:3000', "_parent")
   }
 
-  handleShowPlaylist = playlist_id => {
+  handleShowPlaylist = id => {
     console.log('open this playlists songs by making a fetch request')
-    fetch(`${BACKEND_URL}/playlists/${playlist_id}`)
+    fetch(`${BACKEND_URL}/playlists/${id}`)
       .then(resp => resp.json())
       .then(playlistDetails => this.setState({ current_playlist: playlistDetails }))
   }
