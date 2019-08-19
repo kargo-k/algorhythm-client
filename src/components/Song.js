@@ -5,9 +5,15 @@ class Song extends React.Component {
 
     render() {
         return (
-            <div >
-                <h1>this be a song</h1>
-            </div>
+          <div className='song-name'>
+
+                  {
+                    (this.props.song && this.props.song.name)
+                  }
+
+          </div>
+
+
         );
     }
 
