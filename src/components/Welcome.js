@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Route, Link } from 'react-router-dom'
 import '../App.css';
+import Navbar from './Navbar';
 
 class Welcome extends React.Component {
 
@@ -10,14 +11,10 @@ class Welcome extends React.Component {
                 <h1>Algorhythm Nation</h1>
                 <p>Where you can generate playlists to suit your needs using our algo...rhythms.  Get it?</p>
 
+                <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> Login via Spotify </button>
 
-
-                <a href="http://localhost:8888/login"><button onClick={this.loginSpotify}>Login via Spotify</button></a>
-            </div>
+            </div >
         );
-    }
-
-    loginSpotify = () => {
     }
 }
 

@@ -1,34 +1,32 @@
 import React from 'react';
 import '../App.css';
-import Song from '../components/Song'
 import PlaylistCard from '../components/PlaylistCard'
 
-const PLAYLISTS_URL ='http://localhost:8888/playlists'
+function SavedPlaylists(props) {
 
-class SavedPlaylists extends React.Component {
+  if (props.allPlaylists == null) {
+    return <div></div>
+  } else {
 
-
-
-
-    render() {
-        return (
-            <div>
-            <h1>Saved Playlists</h1>
-          {
-            this.props.allPlaylists.map(playlist => {
-              if (!playlist.name.includes('Library')) {
-              return <PlaylistCard
-              isClicked={this.props.isClicked}
-              onPlaylistClick={this.props.onPlaylistClick}
+    return (
+      <div>
+        <h1>Your Playlists</h1>
+        {props.allPlaylists.map(playlist => {
+          console.log('inside for each', playlist)
+          if (!playlist.name.includes('Library')) {
+            return <PlaylistCard
+              isClicked={props.isClicked}
+              onPlaylistClick={props.onPlaylistClick}
               key={playlist.id}
               playlist={playlist}
-              playlistSongs={this.props.playlistSongs}
-            />}
-            })
+              playlistSongs={props.playlistSongs}
+            />
           }
-          </div>
-        );
-    }
+        })}
+      </div>
+    )
+
+  }
 }
 
 export default SavedPlaylists;
