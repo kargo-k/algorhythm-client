@@ -10,9 +10,9 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div >
-        This is the Navbar
-        <button onClick={this.props.handleLogout}>Logout</button>
+      <div id="navbar">
+        <button id="logoutBtn" onClick={this.props.handleLogout}>Logout</button>
+        <span className='AN'>Algorhythm Nation</span>
       </div>
     );
   }

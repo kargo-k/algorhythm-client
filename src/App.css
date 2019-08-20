@@ -40,13 +40,27 @@ font-family: 'Roboto', sans-serif;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
+
 .bg h1 {
   color: white;
   font-family: 'Permanent Marker', cursive;
-  text-shadow: 2px 2px rgb(189, 188, 188);
+  text-shadow: 2px 2px #ccc;
   font-size: 5em;
 }
 
+#navbar {
+  display: flex;
+  background-color: #91777D;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.AN {
+  font-family: 'Permanent Marker', cursive;
+  text-shadow: 1px 1px #ccc;
+  font-size: 1em;
+  padding: 10px 50px;
+}
 
 .playlists {
  display: grid;
@@ -156,11 +170,21 @@ input {
   }
 }
 
-button {
+#loginBtn button {
   background-color: white;
   border: 2px solid #999;
   border-radius: 8px;
   padding: 15px 25px;
   font-size: 16px;
   color: #000;
+}
+
+#logoutBtn {
+  background-color: white;
+  border: 2px solid #999;
+  border-radius: 8px;
+  padding: 5px 15px;
+  font-size: 14px;
+  color: #000;
+  margin: 0px 20px;
 }
