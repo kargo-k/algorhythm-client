@@ -8,11 +8,14 @@ class Welcome extends React.Component {
     render() {
         return (
             <div className="bg">
-                <h1>Algorhythm Nation</h1>
-                <p>Where you can generate playlists to suit your needs using our algo...rhythms.  Get it?</p>
+                <div>
+                    <h1>Algorhythm Nation</h1>
+                    <p>Where you can generate playlists to suit your needs using our algo...rhythms. <br />Get it?</p>
+                </div>
 
-                <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> Login via Spotify </button>
-
+                <div id="loginBtn">
+                    <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> Login via Spotify </button>
+                </div>
             </div >
         );
     }
