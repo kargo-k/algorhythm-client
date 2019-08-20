@@ -59,7 +59,7 @@ class User extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar handleLogout={this.handleLogout} />
+        <Navbar handleLogout={this.handleLogout} username={this.state.current_user.username} />
         <div className='playlists'>
           <div className='user-heading'>
             <h1>{this.state.current_user.username}</h1>

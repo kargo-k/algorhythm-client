@@ -12,6 +12,7 @@ class Navbar extends React.Component {
     return (
       <div id="navbar">
         <button id="logoutBtn" onClick={this.props.handleLogout}>Logout</button>
+        <h2>{this.props.username}</h2>
         <span className='AN'>Algorhythm Nation</span>
       </div>
     );
