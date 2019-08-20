@@ -3,16 +3,15 @@ import '../App.css';
 import PlaylistCard from '../components/PlaylistCard'
 
 function SavedPlaylists(props) {
-  console.log('inside saved playlists', props)
+
   if (props.allPlaylists == null) {
     return <div></div>
   } else {
-    console.log('in the ELSE blcok')
-    debugger
+
     return (
       <div>
         <h1>Your Playlists</h1>
-        {props.allPlaylists.forEach(playlist => {
+        {props.allPlaylists.map(playlist => {
           console.log('inside for each', playlist)
           if (!playlist.name.includes('Library')) {
             return <PlaylistCard

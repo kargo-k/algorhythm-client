@@ -4,7 +4,7 @@ import '../App.css';
 class PlaylistCard extends React.Component {
 
     render() {
-        console.log('inside playlist card', this)
+
         return (
             <div>
                 <div onClick={() => this.props.onPlaylistClick(this.props.playlist.id)}>

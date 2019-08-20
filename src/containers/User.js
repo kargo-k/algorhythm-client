@@ -40,7 +40,8 @@ class User extends React.Component {
 
   onPlaylistClick = (id) => {
     console.log('thisissenttoonplaylistclick', id)
-    fetch(`${PLAYLISTS_URL}/${id}`)
+    let token = localStorage.getItem('token')
+    fetch(`${PLAYLISTS_URL}/${id}?token=${token}`)
       .then(resp => resp.json())
       .then(playlistSongData => this.displayPlaylistSongs(playlistSongData))
 
