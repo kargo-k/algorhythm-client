@@ -16,7 +16,7 @@ class User extends React.Component {
   constructor() {
     super();
     this.state = {
-      allPlaylists: [],
+      allPlaylists: null,
       songs: [],
       playlistSongs: [],
       isClicked: false,
@@ -27,7 +27,6 @@ class User extends React.Component {
   componentDidMount() {
     // saving the user's access token to local storage
     let token = this.props.location.search.substr(7)
-    console.log('token', token)
     localStorage.setItem('token', token)
 
     fetch(`${BACKEND_URL}/users?token=${token}`)
@@ -36,8 +35,8 @@ class User extends React.Component {
 
     fetch(`${PLAYLISTS_URL}?token=${token}`)
       .then(resp => resp.json())
-      // .then(playlistData => console.log('this is the playlist fetch response', playlistData))
-      .then(playlistData => this.setState({ playlistData: playlistData }))
+      .then(playlistData => console.log('this is the playlist fetch response', playlistData))
+      .then(playlistData => this.setState({ allPlaylists: playlistData }))
   }
 
   onPlaylistClick = (id) => {
