@@ -1,20 +1,19 @@
 import React from 'react';
 import '../App.css';
-import Song from '../components/Song'
 import PlaylistCard from '../components/PlaylistCard'
 
-const PLAYLISTS_URL = 'http://localhost:8888/playlists'
-
 function SavedPlaylists(props) {
-
+  console.log('inside saved playlists', props)
   if (props.allPlaylists == null) {
-    return null
+    return <div></div>
   } else {
-
+    console.log('in the ELSE blcok')
+    debugger
     return (
       <div>
         <h1>Your Playlists</h1>
-        {props.allPlaylists.map(playlist => {
+        {props.allPlaylists.forEach(playlist => {
+          console.log('inside for each', playlist)
           if (!playlist.name.includes('Library')) {
             return <PlaylistCard
               isClicked={props.isClicked}
@@ -24,7 +23,6 @@ function SavedPlaylists(props) {
               playlistSongs={props.playlistSongs}
             />
           }
-
         })}
       </div>
     )

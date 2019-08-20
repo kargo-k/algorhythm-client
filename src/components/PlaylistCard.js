@@ -1,10 +1,10 @@
 import React from 'react';
 import '../App.css';
-import Song from '../components/Song'
 
 class PlaylistCard extends React.Component {
 
     render() {
+        console.log('inside playlist card', this)
         return (
             <div>
                 <div onClick={() => this.props.onPlaylistClick(this.props.playlist.id)}>

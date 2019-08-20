@@ -6,7 +6,6 @@ import Song from '../components/Song'
 class CreatePlaylists extends React.Component {
 
   render() {
-    console.log(this.props.playlistSongs)
     return (
       <div className='create-playlist'>
         <h1>{this.props.isClicked ? 'Viewing your current playlist' : 'Create Your Playlist'}</h1>

@@ -35,7 +35,6 @@ class User extends React.Component {
 
     fetch(`${PLAYLISTS_URL}?token=${token}`)
       .then(resp => resp.json())
-      .then(playlistData => console.log('this is the playlist fetch response', playlistData))
       .then(playlistData => this.setState({ allPlaylists: playlistData }))
   }
 
