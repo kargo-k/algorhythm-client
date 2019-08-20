@@ -4,15 +4,12 @@ import PlaylistCard from '../components/PlaylistCard'
 
 function SavedPlaylists(props) {
 
-  if (props.allPlaylists == null) {
-    return <div></div>
-  } else {
+  if (props.allPlaylists != null) {
 
     return (
       <div>
         <h1>Your Playlists</h1>
         {props.allPlaylists.map(playlist => {
-          console.log('inside for each', playlist)
           if (!playlist.name.includes('Library')) {
             return <PlaylistCard
               isClicked={props.isClicked}
@@ -25,6 +22,12 @@ function SavedPlaylists(props) {
         })}
       </div>
     )
+
+
+  } else {
+
+    return <div><h1>No Saved Playlists! :(</h1></div>
+
 
   }
 }

@@ -20,7 +20,8 @@ class User extends React.Component {
       songs: [],
       playlistSongs: [],
       isClicked: false,
-      current_user: {}
+      current_user: {},
+      current_playlist: {}
     }
   };
 
@@ -43,16 +44,10 @@ class User extends React.Component {
     let token = localStorage.getItem('token')
     fetch(`${PLAYLISTS_URL}/${id}?token=${token}`)
       .then(resp => resp.json())
-      .then(playlistSongData => this.displayPlaylistSongs(playlistSongData))
+      .then(playlistSongData => this.setState({ playlistSongs: playlistSongData }))
 
     this.setState({
       isClicked: !this.state.isClicked
-    })
-  }
-
-  displayPlaylistSongs = (playlistSongData) => {
-    this.setState({
-      playlistSongs: playlistSongData
     })
   }
 
@@ -64,7 +59,7 @@ class User extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar handleLogout={this.handleLogout} />
+        <Navbar handleLogout={this.handleLogout} username={this.state.current_user.username} />
         <div className='playlists'>
           <div className='user-heading'>
             <h1>{this.state.current_user.username}</h1>
