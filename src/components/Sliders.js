@@ -19,10 +19,10 @@ class Sliders extends React.Component {
   customizationButton = (ev) => {
     if (ev.target.value === 'workout') {
       this.setState({
-        valence: .88,
-        energy: .79,
-        tempo: .80,
-        danceability: .99
+        valence: .66,
+        energy: .60,
+        tempo: .51,
+        danceability: .66
       })
     } else if (ev.target.value === 'study') {
       this.setState({
