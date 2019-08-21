@@ -2,8 +2,10 @@ import React from 'react';
 import '../App.css';
 import Sliders from '../components/Sliders'
 import Song from '../components/Song'
+const PLAYLISTS_URL = 'http://localhost:8888/playlists'
 
 class CreatePlaylists extends React.Component {
+
 
   constructor() {
     super()
@@ -17,6 +19,23 @@ class CreatePlaylists extends React.Component {
     } else {
       this.setState({ addSongs: [...this.state.addSongs, uri] })
     }
+  }
+
+  postPlaylist = ev => {
+    ev.preventDefault()
+    console.log(ev.target.playlistname.value)
+    fetch(PLAYLISTS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        token: localStorage.getItem('token'),
+        playlistname: ev.target.playlistname.value,
+        uris: this.state.addSongs
+      })
+    })
   }
 
   render() {
@@ -43,7 +62,10 @@ class CreatePlaylists extends React.Component {
             : <Sliders allSongs={this.props.allSongs} handleAddSong={this.handleAddSong} />}
         </div>
         <div className='save-button'>
-          <button>Save your new playlist</button>
+          <form name='new-playlist-form' onSubmit={this.postPlaylist}>
+            <input name='playlistname' type='text' placeholder='Name your playlist'></input>
+            <button type='submit'>Save your new playlist</button>
+          </form>
         </div>
       </div>
 
