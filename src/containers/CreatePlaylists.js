@@ -5,8 +5,15 @@ import Song from '../components/Song'
 
 class CreatePlaylists extends React.Component {
 
+  constructor() {
+    super()
+    this.state = { addSongs: [] }
+  }
 
-
+  handleAddSong = uri => {
+    this.setState({ addSongs: [...this.state.addSongs, uri] })
+    console.log('inside create playlist handle add song', this.state)
+  }
 
   render() {
     return (
@@ -29,7 +36,7 @@ class CreatePlaylists extends React.Component {
             this.props.playlistSongs.songs && this.props.playlistSongs.songs.map((song) => {
               return <Song isClicked={this.props.isClicked} song={song} />
             }))
-            : <Sliders allSongs={this.props.allSongs} />}
+            : <Sliders allSongs={this.props.allSongs} handleAddSong={this.handleAddSong} />}
         </div>
         <div className='save-button'>
           <button>Save your new playlist</button>

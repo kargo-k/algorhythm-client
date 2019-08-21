@@ -5,7 +5,8 @@ class Customizations extends React.Component {
   constructor() {
     super()
     this.state = {
-      isAddClicked: false
+      isAddClicked: false,
+      addedSongs: []
     }
 
   }
@@ -44,7 +45,10 @@ class Customizations extends React.Component {
               <td>{(this.props.song && this.props.song.name)}</td>
               <td>{(this.props.song && this.props.song.artist)}</td>
               <td>{(this.props.song && this.convertMins(this.props.song.duration_ms))}</td>
-              <td><button className='add-btn' onClick={this.handleAddClick}> {this.state.isAddClicked ? '-' : '+'} </button></td>
+              <td><button className='add-btn' onClick={() => {
+                this.props.handleAddSong(this.props.song.uri)
+                this.handleAddClick()
+              }}> {this.state.isAddClicked ? '-' : '+'} </button></td>
             </tr>
           </tbody>
         </table>

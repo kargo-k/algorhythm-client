@@ -147,7 +147,7 @@ class Sliders extends React.Component {
           </div> : null}
 
           {this.state.isCreateClicked ? (this.state.filteredSongs && this.state.filteredSongs.map((song) => {
-            return <Customizations handleAddClick={this.props.handleAddClick} song={song} />
+            return <Customizations handleAddClick={this.props.handleAddClick} song={song} handleAddSong={this.props.handleAddSong} />
           }))
             : null}
 
