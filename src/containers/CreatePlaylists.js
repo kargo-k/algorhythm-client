@@ -11,7 +11,7 @@ class CreatePlaylists extends React.Component {
   render() {
     return (
       <div className='create-playlist'>
-        <h1>{this.props.isClicked ? 'Viewing your current playlist' : 'Create Your Playlist'}</h1>
+        {this.props.isClicked ? <h1> Viewing your current playlist </h1> : <h1>Create Your Playlist</h1>}
         <div className='Content'>
           {this.props.isClicked ?   <div className="tbl-header">
               <table cellpadding="0" cellspacing="0" border="0">
@@ -21,7 +21,6 @@ class CreatePlaylists extends React.Component {
                     <th>Song</th>
                     <th>Artist</th>
                     <th>Song Length</th>
-                    <th>Add Song</th>
                   </tr>
                 </thead>
               </table>

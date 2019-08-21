@@ -5,24 +5,25 @@ import imgsrc from '../images/Spotify_Icon_RGB_White.png'
 
 class Welcome extends React.Component {
 
-    render() {
-        return (
-            <div className="bg">
-                <div>
-                    <h1>Algorhythm Nation</h1>
+  render() {
+    return (
+      <div className="bg">
+        <div>
+          <h1>Algorhythm Nation</h1>
 
-                    <p>Where you can generate playlists to suit your needs using our (algo)rhythms.</p>
-
-
-                <div id="loginBtn">
-                    <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> <img id='spotifyicon' src={imgsrc}></img>Login via Spotify </button>
-                </div>
+          <p>Where you can generate playlists to suit your needs using our (algo)rhythms.</p>
 
 
+          <div id="loginBtn">
+            <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> <img id='spotifyicon' src={imgsrc}></img>Login via Spotify </button>
+          </div>
 
-            </div >
-        );
+
+
+        </div >
+      </div>
+      );
     }
-}
+  }
 
-export default Welcome;
+  export default Welcome;
