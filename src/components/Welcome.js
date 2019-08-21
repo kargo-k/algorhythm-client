@@ -15,7 +15,7 @@ class Welcome extends React.Component {
                 </div>
 
                 <div id="loginBtn">
-                    <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> <img id='spotifyicon' src={imgsrc}></img>Login via Spotify </button>
+                    <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> <img id='spotifyicon' src={imgsrc}></img>LOGIN VIA SPOTIFY</button>
                 </div>
 
             </div>
