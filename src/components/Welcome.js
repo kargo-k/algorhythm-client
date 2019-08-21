@@ -10,8 +10,8 @@ class Welcome extends React.Component {
             <div className="bg">
                 <div>
                     <h1>Algorhythm Nation</h1>
-                    <p>Where you can generate playlists to suit your needs using our algo...rhythms. <br />Get it?</p>
                 </div>
+                <p>Where you can generate playlists to suit your needs using our algo...rhythms. <br />Get it?</p>
 
                 <div id="loginBtn">
                     <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> Login via Spotify </button>
