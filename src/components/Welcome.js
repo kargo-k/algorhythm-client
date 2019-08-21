@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Route, Link } from 'react-router-dom'
 import '../App.css';
-import Navbar from './Navbar';
+import imgsrc from '../images/Spotify_Icon_RGB_White.png'
 
 class Welcome extends React.Component {
 
@@ -10,12 +10,16 @@ class Welcome extends React.Component {
             <div className="bg">
                 <div>
                     <h1>Algorhythm Nation</h1>
-                </div>
-                <p>Where you can generate playlists to suit your needs using our algo...rhythms. <br />Get it?</p>
+
+                    <p>Where you can generate playlists to suit your needs using our (algo)rhythms.</p>
+
 
                 <div id="loginBtn">
-                    <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> Login via Spotify </button>
+                    <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> <img id='spotifyicon' src={imgsrc}></img>Login via Spotify </button>
                 </div>
+
+
+
             </div >
         );
     }
