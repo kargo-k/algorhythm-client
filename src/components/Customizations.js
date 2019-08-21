@@ -5,13 +5,14 @@ class Customizations extends React.Component {
   constructor() {
     super()
     this.state = {
-      isAddClicked: false
+      isAddClicked: false,
+      addedSongs: []
     }
 
   }
   handleAddClick = () => {
     console.log('clicked', this.props.song.uri)
-    this.setState ({
+    this.setState({
       isAddClicked: !this.state.isAddClicked
     })
   }
@@ -24,9 +25,9 @@ class Customizations extends React.Component {
     return `${minutes}:${seconds}`
   }
 
-  leftPad(number){
+  leftPad(number) {
     var output = number + '';
-    while(output.length < 2 ){
+    while (output.length < 2) {
       output = '0' + output;
     }
     return output;
@@ -40,11 +41,14 @@ class Customizations extends React.Component {
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody>
             <tr>
-              <td>{(this.props.song && <img src={this.props.song.img}/>)}</td>
+              <td>{(this.props.song && <img src={this.props.song.img} />)}</td>
               <td>{(this.props.song && this.props.song.name)}</td>
               <td>{(this.props.song && this.props.song.artist)}</td>
               <td>{(this.props.song && this.convertMins(this.props.song.duration_ms))}</td>
-              <td><button className='add-btn' onClick={this.handleAddClick}> {this.state.isAddClicked ? '-' : '+'} </button></td>
+              <td><button className='add-btn' onClick={() => {
+                this.props.handleAddSong(this.props.song.uri)
+                this.handleAddClick()
+              }}> {this.state.isAddClicked ? '-' : '+'} </button></td>
             </tr>
           </tbody>
         </table>
