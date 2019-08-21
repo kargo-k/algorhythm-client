@@ -3,6 +3,9 @@ import '../App.css';
 
 class Song extends React.Component {
 
+
+/* create a helper method that goes on the end of the boolean */
+
     render() {
 
         return (

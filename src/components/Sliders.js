@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import Customizations from '../components/Customizations';
 
 class Sliders extends React.Component {
   constructor() {
@@ -8,38 +9,41 @@ class Sliders extends React.Component {
       valence: null,
       energy: null,
       tempo: null,
-      danceablity: null
+      danceability: null,
+      isCreateClicked: false,
+      filteredSongs: []
+
     }
   }
   //
   customizationButton = (ev) => {
     if (ev.target.value === 'workout') {
       this.setState({
-        valence: .67,
-        energy: .67,
-        tempo: .67,
-        danceablity: .67
+        valence: .88,
+        energy: .79,
+        tempo: .80,
+        danceability: .99
       })
     } else if (ev.target.value === 'study') {
       this.setState({
         valence: .67,
         energy: .50,
         tempo: .33,
-        danceablity: .33
+        danceability: .33
       })
     } else if (ev.target.value === 'karaoke') {
       this.setState({
         valence: .50,
         energy: .67,
         tempo: .50,
-        danceablity: .88
+        danceability: .88
       })
     } else if (ev.target.value === 'road-trip') {
       this.setState({
         valence: .99,
         energy: .99,
         tempo: .50,
-        danceablity: .67
+        danceability: .67
       })
     }
   }
@@ -64,6 +68,32 @@ class Sliders extends React.Component {
     }
   }
 
+  handleCreatePlaylist = () => {
+
+
+    this.setState({
+      isCreateClicked: !this.state.isCreateClicked,
+      valence: this.state.valence,
+      energy: this.state.energy,
+      tempo: this.state.tempo,
+      danceability: this.state.danceability
+    }, () => {
+      const valenceFilter = (this.state.valence >= .5) ? (this.props.allSongs.filter(song => song.valence > this.state.valence)) : (this.props.allSongs.filter(song => song.valence < this.state.valence))
+      const energyFilter = (this.state.energy >= .5) ? (valenceFilter.filter(song => song.energy > this.state.energy)) : (valenceFilter.filter(song => song.energy < this.state.energy))
+      const tempoFilter = (this.state.tempo >= .5) ? (energyFilter.filter(song => song.tempo > this.state.tempo)) : (energyFilter.filter(song => song.tempo < this.state.tempo))
+      const danceabilityFilter = (this.state.danceability >= .5) ? (tempoFilter.filter(song => song.danceability > this.state.danceability)) : (tempoFilter.filter(song => song.danceability < this.state.danceability))
+      this.setState({
+        filteredSongs: danceabilityFilter
+      })
+      console.log('**arrayofsongs**', this.state.filteredSongs)
+    })
+
+
+
+
+
+  }
+
 
   render() {
     return (
@@ -76,7 +106,7 @@ class Sliders extends React.Component {
 
 
         <div className='customize-playlist'>
-          <p>  Customize how you search for your songs </p>
+          <p style={{"text-align": 'center'}}>Customize how you search for your songs </p>
 
           <div className="slidecontainer">
             <div>
@@ -96,10 +126,19 @@ class Sliders extends React.Component {
               <label for="danceability">Danceability </label>
             </div>
           </div>
-
-          <button onClick={this.handleCreatePlaylist}>Start making your playlist</button>
-          <button onClick={this.handleAutoMakePlaylist}>Do you trust me?</button>
         </div>
+        <div>
+
+          <button onClick={this.handleCreatePlaylist}> Start making your playlist</button>
+          <button onClick={this.handleAutoMakePlaylist}> Do you trust me?</button>
+
+          {this.state.isCreateClicked ? (this.state.filteredSongs && this.state.filteredSongs.map((song) => {
+            return <Customizations currentState={this.state} isCreateClicked={this.props.isCreateClicked} song={song} />
+          }))
+          : null}
+        </div>
+
+
 
       </div>
     );
@@ -108,3 +147,11 @@ class Sliders extends React.Component {
 }
 
 export default Sliders;
+
+// () => this.props.onPlaylistClick(this.props.playlist.id)
+//
+// {this.props.isClicked ? (
+//   this.props.playlistSongs.songs && this.props.playlistSongs.songs.map((song) => {
+//     return <Song isClicked={this.props.isClicked} song={song} />
+//   }))
+//   : <Sliders allSongs={this.props.allSongs}/>}

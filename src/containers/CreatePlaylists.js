@@ -5,6 +5,7 @@ import Song from '../components/Song'
 
 class CreatePlaylists extends React.Component {
 
+
   render() {
     return (
       <div className='create-playlist'>
@@ -14,7 +15,7 @@ class CreatePlaylists extends React.Component {
             this.props.playlistSongs.songs && this.props.playlistSongs.songs.map((song) => {
               return <Song isClicked={this.props.isClicked} song={song} />
             }))
-            : <Sliders />}
+            : <Sliders allSongs={this.props.allSongs}/>}
         </div>
       </div>
 

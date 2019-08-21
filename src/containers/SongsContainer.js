@@ -6,7 +6,6 @@ class SongsContainer extends React.Component {
 
   render() {
     let current_playlist = this.props.current_playlist
-    console.log('in songs container', current_playlist)
 
     if (current_playlist !== null) {
       return (

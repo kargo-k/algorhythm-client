@@ -37,10 +37,13 @@ class User extends React.Component {
     fetch(`${PLAYLISTS_URL}?token=${token}`)
       .then(resp => resp.json())
       .then(playlistData => this.setState({ allPlaylists: playlistData }))
+
+    fetch(`${SONGS_URL}?token=${token}`)
+      .then(resp => resp.json())
+      .then(songData => this.setState({ songs: songData }))
   }
 
   onPlaylistClick = (id) => {
-    console.log('thisissenttoonplaylistclick', id)
     let token = localStorage.getItem('token')
     fetch(`${PLAYLISTS_URL}/${id}?token=${token}`)
       .then(resp => resp.json())
@@ -62,11 +65,10 @@ class User extends React.Component {
         <Navbar handleLogout={this.handleLogout} username={this.state.current_user.username} />
         <div className='playlists'>
           <div className='user-heading'>
-            <h1>{this.state.current_user.username}</h1>
           </div>
 
           <div className='create-playlists'>
-            <CreatePlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} />
+            <CreatePlaylists allSongs={this.state.songs} isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} />
           </div>
 
           <div className='saved-playlists'>
