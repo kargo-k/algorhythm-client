@@ -19,31 +19,31 @@ class Sliders extends React.Component {
   customizationButton = (ev) => {
     if (ev.target.value === 'workout') {
       this.setState({
-        valence: .88,
-        energy: .79,
-        tempo: .80,
-        danceability: .99
+        valence: .66,
+        energy: .60,
+        tempo: .51,
+        danceability: .66
       })
     } else if (ev.target.value === 'study') {
       this.setState({
-        valence: .67,
-        energy: .50,
-        tempo: .33,
-        danceability: .33
+        valence: .61,
+        energy: .49,
+        tempo: .49,
+        danceability: .40
       })
     } else if (ev.target.value === 'karaoke') {
       this.setState({
         valence: .50,
-        energy: .67,
+        energy: .66,
         tempo: .50,
-        danceability: .88
+        danceability: .69
       })
     } else if (ev.target.value === 'road-trip') {
       this.setState({
-        valence: .99,
-        energy: .99,
-        tempo: .50,
-        danceability: .67
+        valence: .51,
+        energy: .68,
+        tempo: .51,
+        danceability: .52
       })
     }
   }
@@ -96,6 +96,7 @@ class Sliders extends React.Component {
 
 
   render() {
+    console.log('***doeshandleclickexist***', this.props)
     return (
       <div>
 
@@ -127,13 +128,25 @@ class Sliders extends React.Component {
             </div>
           </div>
         </div>
-        <div>
+        <button onClick={this.handleCreatePlaylist}> Start making your playlist</button>
+        <button onClick={this.handleAutoMakePlaylist}> Do you trust me?</button>
+        <div className = 'customization-container'>
 
-          <button onClick={this.handleCreatePlaylist}> Start making your playlist</button>
-          <button onClick={this.handleAutoMakePlaylist}> Do you trust me?</button>
-
+          {this.state.isCreateClicked ?   <div className="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>   </th>
+                    <th>Song</th>
+                    <th>Artist</th>
+                    <th>Song Length</th>
+                    <th>Add Song</th>
+                  </tr>
+                </thead>
+              </table>
+            </div> : null}
           {this.state.isCreateClicked ? (this.state.filteredSongs && this.state.filteredSongs.map((song) => {
-            return <Customizations currentState={this.state} isCreateClicked={this.props.isCreateClicked} song={song} />
+            return <Customizations handleAddClick={this.props.handleAddClick} song={song} />
           }))
           : null}
         </div>
