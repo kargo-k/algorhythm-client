@@ -114,6 +114,7 @@ h5 {
   grid-row: 2/7;
   /* background-color: #ffc5bf */
   /* background-color: #baded7; */
+  background-color: #baded7;
 }
 
 .user-heading {
@@ -138,8 +139,18 @@ h5 {
   grid-column: 2/6;
   grid-row: 2/7;
   height:400px;
-  width: 90%;
+  width: 100%;
   overflow: auto;
+}
+
+.playlist-content {
+  grid-column: 1/3;
+  grid-row: 2/7;
+  height:400px;
+  width: 80%;
+  overflow: auto;
+  text-align: left;
+  padding: 1em;
 }
 
 .customization-container {
@@ -147,7 +158,6 @@ h5 {
   grid-row: 2/7;
   text-align: left;
   border-style: inset;
-  margin: 20px;
 }
 
 /* slider stuffs */
@@ -202,6 +212,7 @@ input {
     transform: rotate(360deg);
   }
 }
+/*button*/
 
 #loginBtn button {
   background-color: #000;
@@ -234,6 +245,10 @@ input {
   margin: 0px 20px;
 }
 
+.save-button {
+  text-align: left;
+}
+
 /* table css */
 
 h1{
@@ -243,6 +258,16 @@ h1{
   font-weight: 300;
   text-align: center;
   margin-bottom: 15px;
+}
+
+.h1-current{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: left;
+  margin-bottom: 15px;
+  padding: .5em;
 }
 table{
   width:100%;
