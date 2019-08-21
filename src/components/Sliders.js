@@ -85,7 +85,7 @@ class Sliders extends React.Component {
       this.setState({
         filteredSongs: danceabilityFilter
       })
-      console.log('**arrayofsongs**', this.state.filteredSongs)
+
     })
 
 
@@ -96,7 +96,6 @@ class Sliders extends React.Component {
 
 
   render() {
-    console.log('***doeshandleclickexist***', this.props)
     return (
       <div>
 

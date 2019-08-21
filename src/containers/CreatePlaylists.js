@@ -11,8 +11,12 @@ class CreatePlaylists extends React.Component {
   }
 
   handleAddSong = uri => {
-    this.setState({ addSongs: [...this.state.addSongs, uri] })
-    console.log('inside create playlist handle add song', this.state)
+    if (this.state.addSongs.includes(uri)) {
+      let newSongs = this.state.addSongs.filter(deleteUri => uri !== deleteUri)
+      this.setState({ addSongs: newSongs })
+    } else {
+      this.setState({ addSongs: [...this.state.addSongs, uri] })
+    }
   }
 
   render() {
