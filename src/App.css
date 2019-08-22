@@ -272,6 +272,29 @@ form input {
   margin: 0px 20px;
   font-family: 'Raleway', sans-serif;
 }
+#customize-playlist > button {
+  background-color: #F9BCBB;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px 25px;
+  font-size: 14px;
+  color: #fff;
+  margin: 5px 10px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#show-button {
+  background-color: #654ea3;
+}
+
+.add-btn {
+  background-color: #F9BCBB;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+}
+
+
 
 /* table css */
 
