@@ -294,6 +294,27 @@ form input {
   font-family: 'Raleway', sans-serif;
 }
 
+/* css for sliders */
+.slider {
+  width: 75%;
+  height: 6px;
+  margin: 10px;
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  background: #654ea3; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
 
 
 /* table css */
