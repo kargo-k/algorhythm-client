@@ -45,6 +45,7 @@ class CreatePlaylists extends React.Component {
         <div className='Content'>
           {this.props.isClicked ? <div className="tbl-header">
             <table cellpadding="0" cellspacing="0" border="0">
+
               <thead>
                 <tr>
                   <th>   </th>
