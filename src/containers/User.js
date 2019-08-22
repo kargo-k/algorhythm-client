@@ -62,15 +62,13 @@ class User extends React.Component {
     return (
       <Router>
         <Navbar handleLogout={this.handleLogout} username={this.state.current_user.username} />
-        <div className='playlists'>
-          <div className='user-heading'>
-          </div>
+        <div className='grid-container'>
 
-          <div className='create-playlists'>
+          <div className='right-container'>
             <CreatePlaylists allSongs={this.state.songs} isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} current_playlist={this.state.current_playlist} />
           </div>
 
-          <div className='saved-playlists'>
+          <div className='left-container'>
             <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists} current_playlist={this.state.current_playlist} />
           </div>
 
