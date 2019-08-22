@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/algorhythm-client/static/css/main.458d9aca.chunk.css",
+    "main.js": "/algorhythm-client/static/js/main.df5ff305.chunk.js",
+    "main.js.map": "/algorhythm-client/static/js/main.df5ff305.chunk.js.map",
+    "runtime~main.js": "/algorhythm-client/static/js/runtime~main.231b018b.js",
+    "runtime~main.js.map": "/algorhythm-client/static/js/runtime~main.231b018b.js.map",
+    "static/js/2.32c47737.chunk.js": "/algorhythm-client/static/js/2.32c47737.chunk.js",
+    "static/js/2.32c47737.chunk.js.map": "/algorhythm-client/static/js/2.32c47737.chunk.js.map",
+    "index.html": "/algorhythm-client/index.html",
+    "precache-manifest.d105608272b4a52b597c2e46d1fc0a23.js": "/algorhythm-client/precache-manifest.d105608272b4a52b597c2e46d1fc0a23.js",
+    "service-worker.js": "/algorhythm-client/service-worker.js",
+    "static/css/main.458d9aca.chunk.css.map": "/algorhythm-client/static/css/main.458d9aca.chunk.css.map",
+    "static/media/Spotify_Icon_RGB_White.png": "/algorhythm-client/static/media/Spotify_Icon_RGB_White.cc4e2784.png",
+    "static/media/App.css": "/algorhythm-client/static/media/headphones.936cd709.jpg"
+  }
+}
