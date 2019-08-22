@@ -7,37 +7,6 @@ const PLAYLISTS_URL = 'http://localhost:8888/playlists'
 class CreatePlaylists extends React.Component {
 
 
-  constructor() {
-    super()
-    this.state = { addSongs: [] }
-  }
-
-  handleAddSong = uri => {
-    if (this.state.addSongs.includes(uri)) {
-      let newSongs = this.state.addSongs.filter(deleteUri => uri !== deleteUri)
-      this.setState({ addSongs: newSongs })
-    } else {
-      this.setState({ addSongs: [...this.state.addSongs, uri] })
-    }
-  }
-
-  postPlaylist = ev => {
-    ev.preventDefault()
-    console.log(ev.target.playlistname.value)
-    fetch(PLAYLISTS_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        token: localStorage.getItem('token'),
-        playlistname: ev.target.playlistname.value,
-        uris: this.state.addSongs
-      })
-    })
-  }
-
   render() {
     return (
       <div>
@@ -59,7 +28,7 @@ class CreatePlaylists extends React.Component {
             this.props.playlistSongs.songs && this.props.playlistSongs.songs.map((song) => {
               return <Song isClicked={this.props.isClicked} song={song} />
             }))
-            : <Sliders allSongs={this.props.allSongs} handleAddSong={this.handleAddSong} />}
+            : <Sliders allSongs={this.props.allSongs} handleAddSong={this.props.handleAddSong} />}
         </div>
 
       </div>
