@@ -129,6 +129,13 @@ h2 {
 
 }
 
+.bottom-container {
+  grid-column: 3/9;
+  grid-row: 12/13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* slider stuffs */
 .slidecontainer {
   width: 100%;
@@ -309,8 +316,8 @@ h1{
 table{
   width: 100%;
   table-layout: fixed;
+  margin-top: 20px;
 }
-
 
 tr img {
   height: 6em;

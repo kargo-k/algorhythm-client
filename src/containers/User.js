@@ -72,6 +72,15 @@ class User extends React.Component {
             <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists} current_playlist={this.state.current_playlist} />
           </div>
 
+          <div className='bottom-container'>
+            {!this.state.isClicked ?
+              <div>
+                <form name='new-playlist-form' onSubmit={this.postPlaylist}>
+                  <input name='playlistname' type='text' placeholder='Awesome Playlist Name'></input>
+                  <button type='submit' className='save-button'>Save my Playlist</button>
+                </form>
+              </div> : null}
+          </div>
         </div>
       </Router>
     )
