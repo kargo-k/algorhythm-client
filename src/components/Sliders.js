@@ -97,7 +97,7 @@ class Sliders extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="customize-playlist">
 
         <button value='workout' onClick={(ev) => this.customizationButton(ev)}>Make a Workout Playlist</button>
         <button value='study' onClick={(ev) => this.customizationButton(ev)}>Make a Study Playlist</button>
@@ -127,8 +127,8 @@ class Sliders extends React.Component {
             </div>
           </div>
         </div>
-        <button onClick={this.handleCreatePlaylist}> Start making your playlist</button>
-        <button onClick={this.handleAutoMakePlaylist}> Do you trust me?</button>
+        <button id='show-button' onClick={this.handleCreatePlaylist}>Show me Songs</button>
+        {/* <button onClick={this.handleAutoMakePlaylist}> Do you trust me?</button> */}
 
         <div className='customization-container'>
           {this.state.isCreateClicked ? <div className="tbl-header">

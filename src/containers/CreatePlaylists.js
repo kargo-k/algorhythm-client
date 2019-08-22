@@ -61,10 +61,10 @@ class CreatePlaylists extends React.Component {
             }))
             : <Sliders allSongs={this.props.allSongs} handleAddSong={this.handleAddSong} />}
         </div>
-        <div className='save-button'>
+        <div>
           <form name='new-playlist-form' onSubmit={this.postPlaylist}>
-            <input name='playlistname' type='text' placeholder='Name your playlist'></input>
-            <button type='submit'>Save your new playlist</button>
+            <input name='playlistname' type='text' placeholder='Awesome Playlist Name'></input>
+            <button type='submit' className='save-button'>Save my Playlist</button>
           </form>
         </div>
       </div>
