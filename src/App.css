@@ -4,7 +4,9 @@
 font-family: 'Lexend Deca', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
-
+html {
+  padding: 0px;
+}
 .App {
   text-align: center;
   font-family: 'Raleway', sans-serif;
@@ -56,7 +58,7 @@ h5 {
 }
 
 .bg h1 {
-  color: white;
+  color: #654ea3;
   font-family: 'Permanent Marker', cursive;
   text-shadow: 2px 2px #ccc;
   font-size: 5em;
@@ -100,6 +102,8 @@ h2 {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  height: auto;
+  width: auto;
 }
 
 .create-playlists{
@@ -229,7 +233,7 @@ input {
   font-family: 'Raleway', sans-serif;
 }
 #loginBtn button:hover {
-  background-color: #1DB954;
+  background-color: #654ea3;
   border: 2px solid #fff;
   color: #fff;
 }
@@ -271,8 +275,7 @@ form input {
   font-family: 'Raleway', sans-serif;
 }
 #customize-playlist > button {
-  background-color: #F9BCBB;
-  border: 1px solid #ccc;
+  background-color: #654ea3;
   border-radius: 8px;
   padding: 5px 25px;
   font-size: 14px;
