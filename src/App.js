@@ -22,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="App bg" >
+        <div className="App" >
           <Route exact path='/' component={Welcome} />
           <Route exact path='/user' component={User} />
           <Route exact path='/error' component={ErrorMsg} />
