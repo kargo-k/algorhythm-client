@@ -23,9 +23,9 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App" >
-            <Route exact path='/' component={Welcome} />
-            <Route exact path='/user' component={User} />
-            <Route exact path='/error' component={ErrorMsg} />
+          <Route exact path='/' component={Welcome} />
+          <Route exact path='/user' component={User} />
+          <Route exact path='/error' component={ErrorMsg} />
         </div>
       </Router>
     );

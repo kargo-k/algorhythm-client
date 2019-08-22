@@ -4,9 +4,11 @@
 font-family: 'Lexend Deca', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
-html {
+html body{
   padding: 0px;
   overflow: hidden;
+  display: hidden;
+  margin: 0;
 }
 .App {
   text-align: center;
@@ -59,7 +61,7 @@ h5 {
 }
 
 .bg h1 {
-  color: #654ea3;
+  color: #826cbd;
   font-family: 'Permanent Marker', cursive;
   text-shadow: 2px 2px #ccc;
   font-size: 5em;
@@ -202,7 +204,7 @@ input {
   font-family: 'Raleway', sans-serif;
 }
 #loginBtn button:hover {
-  background-color: #654ea3;
+  background-color: #826cbd;
   border: 2px solid #fff;
   color: #fff;
 }

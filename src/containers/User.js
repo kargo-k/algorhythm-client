@@ -81,11 +81,11 @@ class User extends React.Component {
         playlistname: ev.target.playlistname.value,
         uris: this.state.addSongs
       })
-    })
-
-    fetch(`${PLAYLISTS_URL}?token=${localStorage.getItem('token')}`)
-      .then(resp => resp.json())
-      .then(playlistData => this.setState({ allPlaylists: playlistData }))
+    }).then(resp => resp.json())
+      .then(newPlaylist => {
+        console.log(newPlaylist)
+        this.setState(prevState => { { allPlaylists: prevState.allPlaylists.unshift(newPlaylist) } })
+      })
 
   }
 
