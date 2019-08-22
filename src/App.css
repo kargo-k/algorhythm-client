@@ -293,7 +293,9 @@ form input {
   color: #fff;
   font-family: 'Raleway', sans-serif;
 }
-
+.current-playlist {
+  color: #654ea3;
+}
 /* css for sliders */
 .slider {
   width: 75%;
@@ -310,8 +312,8 @@ form input {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 20px; /* Set a specific slider handle width */
-  height: 20px; /* Slider handle height */
+  width: 18px; /* Set a specific slider handle width */
+  height: 18px; /* Slider handle height */
   background: #654ea3; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }

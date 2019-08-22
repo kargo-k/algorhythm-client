@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import CreatePlaylists from '../containers/CreatePlaylists'
 import SavedPlaylists from '../containers/SavedPlaylists'
-import SongsContainer from '../containers/SongsContainer'
 import Sliders from '../components/Sliders'
 
 const BACKEND_URL = 'http://localhost:8888'
@@ -43,11 +42,11 @@ class User extends React.Component {
       .then(songData => this.setState({ songs: songData }))
   }
 
-  onPlaylistClick = (id) => {
+  onPlaylistClick = (playlist) => {
     let token = localStorage.getItem('token')
-    fetch(`${PLAYLISTS_URL}/${id}?token=${token}`)
+    fetch(`${PLAYLISTS_URL}/${playlist.id}?token=${token}`)
       .then(resp => resp.json())
-      .then(playlistSongData => this.setState({ playlistSongs: playlistSongData }))
+      .then(playlistSongData => this.setState({ playlistSongs: playlistSongData, current_playlist: playlist }))
 
     this.setState({
       isClicked: !this.state.isClicked
@@ -68,11 +67,11 @@ class User extends React.Component {
           </div>
 
           <div className='create-playlists'>
-            <CreatePlaylists allSongs={this.state.songs} isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} />
+            <CreatePlaylists allSongs={this.state.songs} isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} current_playlist={this.state.current_playlist} />
           </div>
 
           <div className='saved-playlists'>
-            <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists} />
+            <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists} current_playlist={this.state.current_playlist} />
           </div>
 
         </div>

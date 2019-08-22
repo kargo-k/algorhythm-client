@@ -14,11 +14,11 @@ function SavedPlaylists(props) {
             if (!playlist.name.includes('Library')) {
               return <PlaylistCard
                 isClicked={props.isClicked}
-                onPlaylistClick={props.onPlaylistClick}
+                onPlaylistClick={(e) => props.onPlaylistClick(playlist)}
                 key={playlist.id}
                 playlist={playlist}
                 playlistSongs={props.playlistSongs}
-                />
+              />
             }
           })}
         </div>
