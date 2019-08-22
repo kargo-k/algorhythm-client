@@ -10,7 +10,7 @@ class CreatePlaylists extends React.Component {
   render() {
     return (
       <div>
-        {this.props.isClicked ? <h1> {this.props.current_playlist.name} </h1> : <h1>Create Your Playlist</h1>}
+        {this.props.isClicked ? <h1> {this.props.current_playlist.name} </h1> : <h1>Customize a New Playlist</h1>}
         <div>
           {this.props.isClicked ?
             <table cellpadding="0" cellspacing="0" border="0">

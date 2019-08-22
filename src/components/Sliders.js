@@ -99,10 +99,10 @@ class Sliders extends React.Component {
     return (
       <div id="customize-playlist">
 
-        <button value='workout' onClick={(ev) => this.customizationButton(ev)}>Make a Workout Playlist</button>
-        <button value='study' onClick={(ev) => this.customizationButton(ev)}>Make a Study Playlist</button>
-        <button value='karaoke' onClick={(ev) => this.customizationButton(ev)}>Make a Karaoke Playlist</button>
-        <button value='road-trip' onClick={(ev) => this.customizationButton(ev)}>Make a Road Trip Playlist</button>
+        <button value='workout' onClick={(ev) => this.customizationButton(ev)}>Workout Playlist</button>
+        <button value='study' onClick={(ev) => this.customizationButton(ev)}>Study Playlist</button>
+        <button value='karaoke' onClick={(ev) => this.customizationButton(ev)}>Karaoke Playlist</button>
+        <button value='road-trip' onClick={(ev) => this.customizationButton(ev)}>Road Trip Playlist</button>
 
 
         <div className='customize-playlist'>
