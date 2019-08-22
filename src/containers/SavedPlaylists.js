@@ -8,7 +8,7 @@ function SavedPlaylists(props) {
 
     return (
       <div>
-        <h1 className='h1-current'>Your Playlists</h1>
+        <h1 className='h1-current'>Playlists</h1>
         <div className='playlist-content'>
           {props.allPlaylists.map(playlist => {
             if (!playlist.name.includes('Library')) {
