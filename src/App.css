@@ -37,11 +37,6 @@ font-family: 'Roboto', sans-serif;
   color: #61dafb;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-}
-
 h5 {
   font-family: 'Lexend Deca', sans-serif;
 
@@ -139,8 +134,9 @@ h5 {
   grid-column: 2/6;
   grid-row: 2/7;
   height: 25em;
-  width: 100%;
+  width: 90%;
   overflow: auto;
+  padding-right: 4em;
 }
 
 .playlist-content {
