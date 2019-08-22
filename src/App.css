@@ -163,7 +163,7 @@ h2 {
   grid-column: 3/7;
   grid-row: 2/7;
   text-align: left;
-  border-style: inset;
+  /* border-style: inset; */
 }
 
 /* slider stuffs */
@@ -293,7 +293,9 @@ form input {
   color: #fff;
   font-family: 'Raleway', sans-serif;
 }
-
+.current-playlist {
+  color: #654ea3;
+}
 /* css for sliders */
 .slider {
   width: 75%;
@@ -310,8 +312,8 @@ form input {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 20px; /* Set a specific slider handle width */
-  height: 20px; /* Slider handle height */
+  width: 18px; /* Set a specific slider handle width */
+  height: 18px; /* Slider handle height */
   background: #654ea3; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
@@ -338,25 +340,26 @@ h1{
   padding: .5em;
 }
 table{
-  width:100%;
+  width: 90%;
   table-layout: fixed;
 }
 .tbl-header{
   background-color: rgba(255,255,255,0.3);
+  margin-top: 20px;
  }
 .tbl-content{
-  height: 8em;
+  /* height: 8em; */
   margin-top: 0px;
-  border: 1px solid rgba(255,255,255,0.3);
+  /* border: 1px solid rgba(255,255,255,0.3); */
 }
 
 .tbl-content img {
-  height: 8em;
-  width: 8em;
+  height: 6em;
+  width: 6em;
 }
 
 th{
-  padding: 20px 15px;
+  padding: 10px;
   text-align: left;
   font-weight: 500;
   font-size: 12px;
