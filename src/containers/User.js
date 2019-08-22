@@ -7,9 +7,9 @@ import CreatePlaylists from '../containers/CreatePlaylists'
 import SavedPlaylists from '../containers/SavedPlaylists'
 import Sliders from '../components/Sliders'
 
-const BACKEND_URL = 'http://localhost:8888'
-const PLAYLISTS_URL = 'http://localhost:8888/playlists'
-const SONGS_URL = 'http://localhost:8888/songs'
+const BACKEND_URL = 'https://algorhythm-nation.herokuapp.com/'
+const PLAYLISTS_URL = 'https://algorhythm-nation.herokuapp.com/playlists'
+const SONGS_URL = 'https://algorhythm-nation.herokuapp.com/songs'
 
 class User extends React.Component {
   constructor() {
@@ -56,7 +56,7 @@ class User extends React.Component {
 
   handleLogout = () => {
     localStorage.clear()
-    window.open('http://localhost:3000', "_parent")
+    window.open('https://algorhythm-nation.herokuapp.com', "_parent")
   }
 
   handleAddSong = uri => {
