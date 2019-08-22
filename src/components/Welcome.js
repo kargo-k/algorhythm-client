@@ -11,17 +11,17 @@ class Welcome extends React.Component {
         <div>
           <h1>Algorhythm Nation</h1>
 
-                    <p>Where you can generate playlists to suit your needs using our (algo)rhythms.</p>
-                </div>
+          <p>Where you can generate playlists to suit your needs using our (algo)rhythms.</p>
+        </div>
 
-                <div id="loginBtn">
-                    <button onClick={() => window.open('http://localhost:8888/login', "_parent")}> <img id='spotifyicon' src={imgsrc}></img>LOGIN VIA SPOTIFY</button>
-                </div>
+        <div id="loginBtn">
+          <button onClick={() => window.open('https://algorhythm-nation.herokuapp.com/login', "_parent")}> <img id='spotifyicon' src={imgsrc}></img>LOGIN VIA SPOTIFY</button>
+        </div>
 
-            </div>
-        );
+      </div>
+    );
 
-    }
   }
+}
 
-  export default Welcome;
+export default Welcome;

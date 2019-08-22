@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import Sliders from '../components/Sliders'
 import Song from '../components/Song'
-const PLAYLISTS_URL = 'http://localhost:8888/playlists'
+const PLAYLISTS_URL = 'https://algorhythm-nation.herokuapp.com/playlists'
 
 class CreatePlaylists extends React.Component {
 
