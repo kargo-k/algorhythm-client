@@ -298,6 +298,7 @@ h1{
   font-weight: 300;
   text-align: left;
   background-color: rgba(255,255,255,0.3);
+  margin-right: 30px;
   /* padding-left: 1.5em; */
   /* margin-bottom: 15px;
   padding: .5em; */
@@ -306,22 +307,17 @@ table{
   width: 100%;
   table-layout: fixed;
 }
-.tbl-header{
-  background-color: rgba(255,255,255,0.3);
-  margin-top: 20px;
- }
-.tbl-content{
-  /* height: 8em; */
-  margin-top: 0px;
-  /* border: 1px solid rgba(255,255,255,0.3); */
-}
 
-.tbl-content img {
+
+tr img {
   height: 6em;
   width: 6em;
+  padding: 2px;
 }
 
 th{
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
   padding: 10px;
   text-align: left;
   font-weight: 500;
@@ -329,11 +325,10 @@ th{
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-}
-td{
-  padding: 2px;
-  text-align: left;
   vertical-align:middle;
+}
+td {
+  text-align: center;
   font-weight: 300;
   font-size: 12px;
   color: #fff;

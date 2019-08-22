@@ -41,21 +41,20 @@ class CreatePlaylists extends React.Component {
   render() {
     return (
       <div>
-        {this.props.isClicked ? <h1> Viewing your current playlist </h1> : <h1>Create Your Playlist</h1>}
+        {this.props.isClicked ? <h1> {this.props.current_playlist.name} </h1> : <h1>Create Your Playlist</h1>}
         <div>
-          {this.props.isClicked ? <div className="tbl-header">
+          {this.props.isClicked ?
             <table cellpadding="0" cellspacing="0" border="0">
 
-              <thead>
-                <tr>
-                  <th>   </th>
-                  <th>Song</th>
-                  <th>Artist</th>
-                  <th>Song Length</th>
-                </tr>
-              </thead>
+              <tr>
+                <th>Album</th>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Song Length</th>
+              </tr>
+
             </table>
-          </div> : null}
+            : null}
           {this.props.isClicked ? (
             this.props.playlistSongs.songs && this.props.playlistSongs.songs.map((song) => {
               return <Song isClicked={this.props.isClicked} song={song} />

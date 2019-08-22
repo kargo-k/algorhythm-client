@@ -131,11 +131,11 @@ class Sliders extends React.Component {
         {/* <button onClick={this.handleAutoMakePlaylist}> Do you trust me?</button> */}
 
         <div className='customization-container'>
-          {this.state.isCreateClicked ? <div className="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
+          {this.state.isCreateClicked ?
+            <table cellpadding="0" cellspacing="0" border="0" className='songs-table'>
               <thead>
                 <tr>
-                  <th>   </th>
+                  <th>Album</th>
                   <th>Song</th>
                   <th>Artist</th>
                   <th>Song Length</th>
@@ -143,7 +143,7 @@ class Sliders extends React.Component {
                 </tr>
               </thead>
             </table>
-          </div> : null}
+            : null}
 
           {this.state.isCreateClicked ? (this.state.filteredSongs && this.state.filteredSongs.map((song) => {
             return <Customizations handleAddClick={this.props.handleAddClick} song={song} handleAddSong={this.props.handleAddSong} />

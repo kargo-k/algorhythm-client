@@ -36,22 +36,21 @@ class Customizations extends React.Component {
 
 
     return (
-      <div className="tbl-content">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            <tr>
-              <td>{(this.props.song && <img src={this.props.song.img} />)}</td>
-              <td>{(this.props.song && this.props.song.name)}</td>
-              <td>{(this.props.song && this.props.song.artist)}</td>
-              <td>{(this.props.song && this.convertMins(this.props.song.duration_ms))}</td>
-              <td><button className='add-btn' onClick={(e) => {
-                this.props.handleAddSong(this.props.song.uri)
-                this.handleAddClick()
-              }}> {this.state.isAddClicked ? 'remove' : 'add song'} </button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table className='songs-table'>
+        <tbody>
+          <tr>
+            <td>{(this.props.song && <img src={this.props.song.img} />)}</td>
+            <td>{(this.props.song && this.props.song.name)}</td>
+            <td>{(this.props.song && this.props.song.artist)}</td>
+            <td>{(this.props.song && this.convertMins(this.props.song.duration_ms))}</td>
+            <td><button className='add-btn' onClick={(e) => {
+              this.props.handleAddSong(this.props.song.uri)
+              this.handleAddClick()
+            }}> {this.state.isAddClicked ? 'remove' : 'add song'} </button></td>
+          </tr>
+        </tbody>
+
+      </table>
     );
   }
 
