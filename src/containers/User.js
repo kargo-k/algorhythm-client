@@ -62,18 +62,25 @@ class User extends React.Component {
     return (
       <Router>
         <Navbar handleLogout={this.handleLogout} username={this.state.current_user.username} />
-        <div className='playlists'>
-          <div className='user-heading'>
-          </div>
+        <div className='grid-container'>
 
-          <div className='create-playlists'>
+          <div className='right-container'>
             <CreatePlaylists allSongs={this.state.songs} isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} current_playlist={this.state.current_playlist} />
           </div>
 
-          <div className='saved-playlists'>
+          <div className='left-container'>
             <SavedPlaylists isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} onPlaylistClick={this.onPlaylistClick} allPlaylists={this.state.allPlaylists} current_playlist={this.state.current_playlist} />
           </div>
 
+          <div className='bottom-container'>
+            {!this.state.isClicked ?
+              <div>
+                <form name='new-playlist-form' onSubmit={this.postPlaylist}>
+                  <input name='playlistname' type='text' placeholder='Awesome Playlist Name'></input>
+                  <button type='submit' className='save-button'>Save my Playlist</button>
+                </form>
+              </div> : null}
+          </div>
         </div>
       </Router>
     )

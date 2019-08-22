@@ -40,35 +40,28 @@ class CreatePlaylists extends React.Component {
 
   render() {
     return (
-      <div className='create-playlist'>
-        {this.props.isClicked ? <h1> Viewing your current playlist </h1> : <h1>Create Your Playlist</h1>}
-        <div className='Content'>
-          {this.props.isClicked ? <div className="tbl-header">
+      <div>
+        {this.props.isClicked ? <h1> {this.props.current_playlist.name} </h1> : <h1>Create Your Playlist</h1>}
+        <div>
+          {this.props.isClicked ?
             <table cellpadding="0" cellspacing="0" border="0">
 
-              <thead>
-                <tr>
-                  <th>   </th>
-                  <th>Song</th>
-                  <th>Artist</th>
-                  <th>Song Length</th>
-                </tr>
-              </thead>
+              <tr>
+                <th>Album</th>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Song Length</th>
+              </tr>
+
             </table>
-          </div> : null}
+            : null}
           {this.props.isClicked ? (
             this.props.playlistSongs.songs && this.props.playlistSongs.songs.map((song) => {
               return <Song isClicked={this.props.isClicked} song={song} />
             }))
             : <Sliders allSongs={this.props.allSongs} handleAddSong={this.handleAddSong} />}
         </div>
-        {!this.props.isClicked ?
-          <div>
-            <form name='new-playlist-form' onSubmit={this.postPlaylist}>
-              <input name='playlistname' type='text' placeholder='Awesome Playlist Name'></input>
-              <button type='submit' className='save-button'>Save my Playlist</button>
-            </form>
-          </div> : null}
+
       </div>
 
     );
