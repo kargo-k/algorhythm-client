@@ -20,7 +20,8 @@ class User extends React.Component {
       playlistSongs: [],
       isClicked: false,
       current_user: {},
-      current_playlist: {}
+      current_playlist: {},
+      addSongs: []
     }
   };
 
@@ -58,6 +59,36 @@ class User extends React.Component {
     window.open('http://localhost:3000', "_parent")
   }
 
+  handleAddSong = uri => {
+    if (this.state.addSongs.includes(uri)) {
+      let newSongs = this.state.addSongs.filter(deleteUri => uri !== deleteUri)
+      this.setState({ addSongs: newSongs })
+    } else {
+      this.setState({ addSongs: [...this.state.addSongs, uri] })
+    }
+  }
+
+  postPlaylist = ev => {
+    ev.preventDefault()
+    fetch(PLAYLISTS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        token: localStorage.getItem('token'),
+        playlistname: ev.target.playlistname.value,
+        uris: this.state.addSongs
+      })
+    })
+
+    fetch(`${PLAYLISTS_URL}?token=${localStorage.getItem('token')}`)
+      .then(resp => resp.json())
+      .then(playlistData => this.setState({ allPlaylists: playlistData }))
+
+  }
+
   render() {
     return (
       <Router>
@@ -65,7 +96,7 @@ class User extends React.Component {
         <div className='grid-container'>
 
           <div className='right-container'>
-            <CreatePlaylists allSongs={this.state.songs} isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} current_playlist={this.state.current_playlist} />
+            <CreatePlaylists allSongs={this.state.songs} isClicked={this.state.isClicked} playlistSongs={this.state.playlistSongs} current_playlist={this.state.current_playlist} handleAddSong={this.handleAddSong} />
           </div>
 
           <div className='left-container'>

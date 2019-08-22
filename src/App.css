@@ -291,7 +291,7 @@ form input {
 
 /* table css */
 
-h1{
+.grid-container h1{
   font-size: 30px;
   color: #fff;
   text-transform: uppercase;
