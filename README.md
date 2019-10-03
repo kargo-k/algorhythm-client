@@ -1,6 +1,9 @@
 ## About
 Algorhythm Nation is a single page web application that allows users to view their Spotify playlists and built new playlists based on With a name inspired by Janet Jackson's song and the use of coding algorithms, specific track features such as energy, valence, and daceability utilizing the Spotify API.  
 
+## Live App
+[Algorhythm Nation](http://algorhythm-nation-front.herokuapp.com/)
+
 ### Technical Specs
 * React JS
 * Custom CSS
